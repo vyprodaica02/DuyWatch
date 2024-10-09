@@ -1,5 +1,7 @@
 <script setup>
 import logo from "../img/logo-watchstore3-9-24_1725292445.webp";
+import SvgIcon from "@jamescoyle/vue-icon";
+import { mdiMagnify } from "@mdi/js";
 
 const menuItems = [
   "Giới thiệu",
@@ -15,7 +17,7 @@ const menuItems = [
   <v-app>
     <v-app-bar color="white">
       <v-main class="remove-padding">
-        <v-container class="remove-padding ma-0">
+        <v-container class="remove-padding">
           <v-row class="justify-center align-center">
             <v-col cols="2" class="pa-0 responsive-logo">
               <v-img :src="logo" alt="Logo"></v-img>
@@ -33,11 +35,27 @@ const menuItems = [
               </v-list>
             </v-col>
             <v-col cols="2">
-              <v-text-field
-                label="Tìm kiếm"
-                append-icon="mdi-magnify"
-                outlined
-              ></v-text-field>
+              <v-row class="search-input">
+                <v-col cols="10" class="remove-padding d-flex align-center">
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="custom-input"
+                  />
+                </v-col>
+                <v-col
+                  cols="2"
+                  class="d-flex align-center justify-center remove-padding"
+                >
+                  <svg-icon
+                    type="mdi"
+                    :path="mdiMagnify"
+                    width="24"
+                    height="24"
+                    class=""
+                  ></svg-icon>
+                </v-col>
+              </v-row>
             </v-col>
             <v-col cols="1">4</v-col>
           </v-row>
@@ -49,7 +67,7 @@ const menuItems = [
 
 <style scoped>
 .remove-padding {
-  padding: 0;
+  padding: 0 !important;
 }
 .remove-magin {
   margin: 0 !important;
@@ -59,5 +77,31 @@ const menuItems = [
   min-height: 24px;
   width: 100%;
   height: auto;
+}
+
+.custom-input {
+  border: none;
+  width: 100%;
+  padding: 6px 8px;
+  outline: none;
+}
+
+.custom-input:focus {
+  border-color: none;
+  box-shadow: none;
+}
+.v-icon {
+  cursor: pointer;
+}
+.search-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus-within {
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
 }
 </style>

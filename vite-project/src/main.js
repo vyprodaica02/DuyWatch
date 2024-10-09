@@ -11,6 +11,9 @@ import * as directives from "vuetify/directives";
 const vuetify = createVuetify({
   components,
   directives,
+  icons: {
+    defaultSet: "mdi",
+  },
 });
 
 const app = createApp(App);
